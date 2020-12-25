@@ -1,4 +1,5 @@
-/*   this little C++ program demonstrates how different integer values
+/*   
+     this little C++ program demonstrates how different integer values
      are represented in binary 
 */
 
@@ -6,77 +7,6 @@
 
 template<typename T>
 void printInBinary (T a)
-{
-    size_t sizeInBytes = sizeof(a);
-
-    int8_t   var8   = 1;
-    int16_t  var16  = 1;
-    int32_t  var32  = 1;
-    int64_t  var64  = 1;
-
-    switch(sizeInBytes)
-    {
-        case 1:
-            for(int i = 0; i < 8; i++)
-            {
-                if(a & var8)
-                    std::cout << "1";
-                else
-                    std::cout << "0";
-                
-                
-                var8 <<= 1;
-            } 
-            break;
-
-        case 2:  
-            for(int i = 0; i < 16; i++)
-            {
-                if(a & var16)
-                    std::cout << "1";
-                else
-                    std::cout << "0";                    
-                
-                
-                var16 <<= 1;
-            } 
-            break;   
-
-        case 4:  
-            for(int i = 0; i < 32; i++)
-            {
-                if(a & var32)
-                    std::cout << "1";
-                else
-                    std::cout << "0";
-
-                var32 <<= 1;
-            } 
-            break;                   
-
-        case 8:  
-            for(int i = 0; i < 64; i++)
-            {
-                if(a & var64)
-                    std::cout << "1";
-                else
-                    std::cout << "0";                    
-                
-                var64 <<= 1;
-            } 
-            break;
-
-        default:
-           std::cout << "Something went wrong";    
-           break;       
-    }
-    
-
-    std::cout << std::endl;
-}
-
-template<typename T>
-void printInBinaryReverse (T a)
 {
     unsigned char       var8   = 0x80;        
     unsigned short      var16  = 0x8000;
@@ -149,60 +79,71 @@ void printInBinaryReverse (T a)
 }
 
 int main()
-{
-    char ch1 = 0;
-    printInBinary<char>(ch1);
-    printInBinaryReverse<char>(ch1);
+{   
+    std::cout << "Exploring char data type\n" << std::endl;
+
+    char ch0 = 0;
+    printInBinary<char>(ch0);   
+    printf("char 0 = %d \n", ch0); 
+    std::cout << "-----" <<std::endl;
+
+    char ch1 = 1;
+    printInBinary<char>(ch1);   
+    printf("char 1 = %d \n", ch1); 
     std::cout << "-----" <<std::endl;
 
     char ch2 = 2;
-    printInBinary<char>(ch2);
-    printInBinaryReverse<char>(ch2);
-    std::cout << "-----" <<std::endl;  
-
-    char ch3 = 127;
-    printInBinary<char>(ch3);
-    printInBinaryReverse<char>(ch3);
-    std::cout << "-----" <<std::endl;   
-    
-    char ch4 = 128;
-    printInBinary<char>(ch4);
-    printInBinaryReverse<char>(ch4);
-    std::cout << "-----" <<std::endl;  
-
-    char ch5 = -128;
-    printInBinary<char>(ch5);
-    printInBinaryReverse<char>(ch5);
-    std::cout << "-----" <<std::endl;          
-    std::cout << "-----" <<std::endl;  
-
-
-    short sh1 = 3;
-    printInBinary<short>(sh1);
-    printInBinaryReverse<short>(sh1);
+    printInBinary<char>(ch2);   
+    printf("char 2 = %d \n", ch2); 
     std::cout << "-----" <<std::endl;
-    std::cout << "-----" <<std::endl;   
 
-    int in1 = 65535;
-    printInBinary<int>(in1);
-    printInBinaryReverse<int>(in1);
+    char ch127 = 127;
+    printInBinary<char>(ch127);
+    printf("char 127 = %d \n", ch127); 
+    std::cout << "-----" <<std::endl;
+
+    char ch128 = 128;
+    printInBinary<char>(ch128);  
+    printf("char 128 = %d \n", ch128);  
+    std::cout << "-----" <<std::endl; 
+
+    char ch_128 = -128;
+    printInBinary<char>(ch_128);
+    printf("char -128 = %d \n", ch_128);  
+    std::cout << "-----" <<std::endl;
+
+    char ch129 = 129;
+    printInBinary<char>(ch129);
+    printf("char 129 = %d \n", ch129);  
     std::cout << "-----" <<std::endl;    
 
-    int in2 = 0x80000000; 
-    printInBinary<int>(in2);
-    printInBinaryReverse<int>(in2);
+    char ch_129 = -129;
+    printInBinary<char>(ch_129);  
+    printf("char -129 = %d \n", ch_129);
+    std::cout << "-----" <<std::endl;    
+
+    char ch_130 = -130;
+    printInBinary<char>(ch_130); 
+    printf("char -130 = %d \n", ch_130);
     std::cout << "-----" <<std::endl; 
-    std::cout << "-----" <<std::endl;   
- 
-    long lo1 = 0x80000000;  
-    printInBinary<long>(lo1);
-    printInBinaryReverse<long>(lo1);
+    std::cout << "-----------------------" <<std::endl; 
+
+    std::cout << "\nExploring other integer data types\n" << std::endl;
+
+    short sh_130 = -130;
+    printInBinary<short>(sh_130); 
+    printf("short -130 = %d \n", sh_130);
     std::cout << "-----" <<std::endl; 
 
-    long lo2 = 2 * 2 * 2 * 2 * 2 * 2 * 2;
-    printInBinary<long>(lo2);
-    printInBinaryReverse<long>(lo2);
+    int int_130 = -130;
+    printInBinary<int>(int_130); 
+    printf("int -130 = %d \n", int_130);
     std::cout << "-----" <<std::endl; 
+
+    long long ll_130 = -130;
+    printInBinary<long long>(ll_130); 
+    printf("long long -130 = %lld \n", ll_130);
+    std::cout << "-----" <<std::endl;
          
     return 0;
 }
