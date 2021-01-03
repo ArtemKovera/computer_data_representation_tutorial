@@ -18,7 +18,6 @@ void printInBinary (T a)
     switch(sizeInBytes)
     {
         case 1:
-            
             for(int i = 0; i < 8; i++)
             {
                 if(a & var8)
@@ -32,7 +31,6 @@ void printInBinary (T a)
             break;
 
         case 2:  
-            
             for(int i = 0; i < 16; i++)
             {
                 if(a & var16)
@@ -148,4 +146,4 @@ int main()
     return 0;
 }
 
-// g++ -o prog integer_data_viewed_in_binary.cpp 
+ 
