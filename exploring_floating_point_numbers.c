@@ -1,11 +1,12 @@
 
 /*
 
-    This program explores the properties of single
+    This program explores single
     and double-precision floating-point numbers
 
 */
 #include<stdio.h>
+#include<math.h>
 
 //this function expects to accept the void pointer to float
 //it prints the bits' values of the single-precision floating-point number
@@ -99,7 +100,22 @@ int main()
     float val13 = 64000006;
     void * p13 = &val13;     
     printf("64000006:           ");
-    showBitsInFloat(p13);                                                                
+    showBitsInFloat(p13);  
+
+    float val14 = NAN; //the macro for nan from math.h (the same value can be obtained as 0.0/0.0)
+    void * p14 = &val14;
+    printf("Nan:                ");
+    showBitsInFloat(p14);  
+
+    float val15 = 1 / 0.0;
+    void * p15 = &val15;
+    printf("Positive infinity:  ");
+    showBitsInFloat(p15);  
+
+    float val16 = -1 / 0.0;
+    void * p16 = &val16;
+    printf("Negative infinity:  ");
+    showBitsInFloat(p16);                                                                                       
 
     printf("------------------------------------------\n");  
     printf("\n *****Exploring double-precision numbers (double)***** \n\n");
@@ -132,7 +148,22 @@ int main()
     double dval6 = 10000000000000002;
     void * dp6 = &dval6;
     printf("10000000000000002:  ");
-    showBitsInDouble(dp6);        
+    showBitsInDouble(dp6);     
+
+    double dval7 = NAN; //the macro for nan from math.h (the same value can be obtained as 0.0/0.0)
+    void * dp7 = &dval7;
+    printf("Nan:                ");
+    showBitsInDouble(dp7); 
+
+    double dval8 = 1 / 0.0;
+    void * dp8 = &dval8;
+    printf("Positive infinity:  ");
+    showBitsInDouble(dp8);  
+
+    double dval9 = -1 / 0.0;
+    void * dp9 = &dval9;
+    printf("Negative infinity:  ");
+    showBitsInDouble(dp9);      
 
     return 0;
 }
@@ -151,7 +182,7 @@ void showBitsInFloat (void * pointer)
         else
             printf("0"); 
         
-        if(iteration == 0 || iteration == 7)
+        if(iteration == 0 || iteration == 8)
             printf(" ");
 
         bitPosition >>= 1;
