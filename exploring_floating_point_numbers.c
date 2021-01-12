@@ -27,6 +27,11 @@ int main()
     printf("0.0:                ");
     showBitsInFloat(p0);
 
+    float val00 = 0.1;                   //this value cannot be exectly represented in binary
+    void * p00 = &val00;
+    printf("0.1:                ");
+    showBitsInFloat(p00);
+
     float val = -0.5;
     void * p = &val;
     printf("-0.5:               ");
@@ -115,7 +120,12 @@ int main()
     float val16 = -1 / 0.0;
     void * p16 = &val16;
     printf("Negative infinity:  ");
-    showBitsInFloat(p16);                                                                                       
+    showBitsInFloat(p16); 
+
+    float val17 = 0.0001 / pow(10, 35);           //Example of a number in a denormalized form
+    void * p17 = &val17;
+    printf("Denormalized form:  ");   
+    showBitsInFloat(p17);                                                                                              
 
     printf("------------------------------------------\n");  
     printf("\n *****Exploring double-precision numbers (double)***** \n\n");
@@ -163,7 +173,12 @@ int main()
     double dval9 = -1 / 0.0;
     void * dp9 = &dval9;
     printf("Negative infinity:  ");
-    showBitsInDouble(dp9);      
+    showBitsInDouble(dp9); 
+
+    double dval10 = 0.0001 / pow (10, 308);           //Example of a number in a denormalized form
+    void * dp10 = &dval10;
+    printf("Denormalized form:  ");   
+    showBitsInDouble(dp10);           
 
     return 0;
 }
