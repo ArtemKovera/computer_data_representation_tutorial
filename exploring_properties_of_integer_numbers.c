@@ -44,6 +44,8 @@ int main()
    printf("\n");
    printf("In these examples the least significant bits come first\n\n");
 
+   printf("Wraparound behaviour and overflow\n\n");
+
    unsigned char v1 = 128;
    unsigned char v2 = 128;
    unsigned char v3 = v1 + v2;
@@ -59,21 +61,21 @@ int main()
 
    signed char v5 = -127;
    signed char v6 = -2;
-   signed char v7 = v5 + v6;
+   signed char v7 = v5 + v6;                              //undefined behaviour
    void * p7 = &v7;
-   printf("signed char    -127 - 2 = %d:  ", v7);
+   printf("signed char    -127 - 2 = %d:  ", v7);   
    showBits(p7, sizeof(char));
 
    signed char v8 = 127;
    signed char v9 = 127;
-   signed char v10 = v8 + v9;
+   signed char v10 = v8 + v9;                             //undefined behaviour
    void * p10 = &v10;
    printf("signed char 127 + 127   =  %d:  ", v10);
    showBits(p10, sizeof(char));
 
    signed char v11 = 126;
    signed char v12 = 126;
-   signed char v13 = v11 + v12;
+   signed char v13 = v11 + v12;                           //undefined behaviour
    void * p13 = &v13;
    printf("signed char 126 + 126   =  %d:  ", v13);
    showBits(p13, sizeof(char)); 
@@ -85,7 +87,21 @@ int main()
    printf("unsigned int %u + %u = %u: ", v14, v15, v16);
    showBits(p16, sizeof(int));
 
+   printf("------------------------------------\n\n");
 
+   printf("Integer casts examples\n\n");
+
+   signed short v17 = 4;
+   signed int   v18 = (signed int) v17;
+   void *       p18 = &v18;
+   printf("(signed int) signed short %d:  ", v18);
+   showBits(p18, sizeof(int));
+
+   signed short v19 = -4;
+   signed int   v20 = (signed int) v19;
+   void *       p20 = &v20;
+   printf("(signed int) signed short %d: ", v20);
+   showBits(p20, sizeof(int)); 
 
     return 0;
 }
