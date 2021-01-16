@@ -1,10 +1,12 @@
 /*
     This program demonstrates using a function that
-    shows the hexadecimal byte values of any type of object
+    shows the hexadecimal byte values of an arbitrary object type
 */
 #include<stdio.h>
 
-void showBytes (void * pointer, size_t size)
+//this function takes a void pointer and the size of the object in bytes
+//the least significant byte is printed first
+void showBytes (const void * pointer, size_t size)
 {
     unsigned char * charPointer = (unsigned char*) pointer;
     
@@ -47,6 +49,15 @@ struct DifferentTypes3
 
 int main ()
 {
+    
+    printf("\nIn these examples, the least significant byte comes first\n\n");
+    
+    const int var = 1024;
+    const void * cp = &var;
+    printf("Showing bytes for int 1024: \n");
+    showBytes(cp, sizeof(int));
+    printf("\n");
+    
     short sh1 = 2;
     short * shp1 = &sh1;
     printf("Showing bytes for short 2: \n");
