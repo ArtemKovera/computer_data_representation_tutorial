@@ -175,10 +175,22 @@ int main()
     printf("Negative infinity:  ");
     showBitsInDouble(dp9); 
 
-    double dval10 = 0.0001 / pow (10, 308);           //Example of a number in a denormalized form
+    double dval10 = 10e-310;           //Example of a number in a denormalized form
     void * dp10 = &dval10;
     printf("Denormalized form:  ");   
-    showBitsInDouble(dp10);           
+    showBitsInDouble(dp10); 
+
+    double dval11 = 10e-340;
+    void * dp11 = &dval11;
+    printf("Underflow:          ");    //Example of double underflow
+    showBitsInDouble(dp11);
+
+    float fl1 = 10e-47;
+    void * flp = &fl1;
+    printf("Underflow:          ");    //Example of float underflow
+    showBitsInFloat(flp);
+
+
 
     return 0;
 }
