@@ -5,9 +5,10 @@
 */
 #include<stdio.h>
 
+//this function takes a pointer to an arbitrary object and the of this object in bytes
 //this function prints the bit's values of an arbitrary object
 //the least significant bit is printed first
-void showBits(void * pointer, size_t size)
+void showBits(const void * pointer, size_t size)
 {
     unsigned char * charPointer = (unsigned char *) pointer;
     unsigned char bitPosition;
