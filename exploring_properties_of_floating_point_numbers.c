@@ -10,16 +10,16 @@
 //this function expects to accept the void pointer to float
 //it prints the bits' values of the single-precision floating-point number
 //the sign bit goes on the left, then goes the exponent, the mantissa (fraction) appears on the right
-void showBitsInFloat (void * pointer);
+void showBitsInFloat (const void * pointer);
 
 //this function expects to accept the void pointer to double
 //it prints the bits' values of the double-precision floating-point number
 //the sign bit goes on the left, then goes the exponent, the mantissa (fraction) appears on the right
-void showBitsInDouble (void * pointer);
+void showBitsInDouble (const void * pointer);
 
 int main()
 {
-    printf("\nadding a small value to a latge value can be dangerous\n");
+    printf("\nadding a small value to a large value can be dangerous\n");
     
     float var1 = 1000000;
     float var2 = 1000000;
@@ -213,13 +213,18 @@ int main()
     printf("Infinity - Infinity:                    ");
     showBitsInDouble(dp88);
 
+    double dv99 = INFINITY * INFINITY;
+    void * dp99 = &dv99;
+    printf("Infinity * Infinity:                    ");
+    showBitsInDouble(dp99);
+
     printf("--------------------------------------------------\n\n");
 
-    printf("******* NAN in calculations *********\n");
+    printf("******* NaN in calculations *********\n");
    
     double nan = NAN;
     void * nanP = &nan;
-    printf("NAN:                                   ");
+    printf("NaN:                                   ");
     showBitsInDouble(nanP);
     
     
@@ -231,7 +236,7 @@ int main()
 
     double dv6 = 1.0 / NAN;
     void * dp6 = &dv6;
-    printf("1 divided by NAN:                      ");
+    printf("1 divided by NaN:                      ");
     showBitsInDouble(dp6);
 
 
@@ -242,23 +247,23 @@ int main()
 
     double dv8 = 1.0 + NAN;
     void * dp8 = &dv8;
-    printf("1 + NAN:                               ");
+    printf("1 + NaN:                               ");
     showBitsInDouble(dp8); 
 
     double dv9 = NAN + INFINITY;
     void * dp9 = &dv9;
-    printf("NAN + Infinity:                        ");   
+    printf("NaN + Infinity:                        ");   
     showBitsInDouble(dp9);
 
     double dv10 = NAN * INFINITY;
     void * dp10 = &dv10;
-    printf("NAN * Infinity:                        ");   
+    printf("NaN * Infinity:                        ");   
     showBitsInDouble(dp10);    
 
     return 0;
 }
 
-void showBitsInFloat (void * pointer)
+void showBitsInFloat (const void * pointer)
 {
     unsigned int * intPoint  = (unsigned int *) pointer;
     unsigned int bitPosition = 0x80000000;
@@ -282,7 +287,7 @@ void showBitsInFloat (void * pointer)
     printf("\n\n");    
 } 
 
-void showBitsInDouble (void * pointer)
+void showBitsInDouble (const void * pointer)
 {
     unsigned long int * longIntPoint = (unsigned long int *) pointer;
     unsigned long int bitPosition    = 0x8000000000000000;
