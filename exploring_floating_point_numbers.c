@@ -11,12 +11,12 @@
 //this function expects to accept the void pointer to float
 //it prints the bits' values of the single-precision floating-point number
 //the sign bit goes on the left, then goes the exponent, the mantissa (fraction) appears on the right
-void showBitsInFloat (void * pointer);
+void showBitsInFloat (const void * pointer);
 
 //this function expects to accept the void pointer to double
 //it prints the bits' values of the double-precision floating-point number
 //the sign bit goes on the left, then goes the exponent, the mantissa (fraction) appears on the right
-void showBitsInDouble (void * pointer);
+void showBitsInDouble (const void * pointer);
 
 int main()
 {
@@ -195,7 +195,7 @@ int main()
     return 0;
 }
 
-void showBitsInFloat (void * pointer)
+void showBitsInFloat (const void * pointer)
 {
     unsigned int * intPoint  = (unsigned int *) pointer;
     unsigned int bitPosition = 0x80000000;
@@ -219,7 +219,7 @@ void showBitsInFloat (void * pointer)
     printf("\n\n");    
 } 
 
-void showBitsInDouble (void * pointer)
+void showBitsInDouble (const void * pointer)
 {
     unsigned long int * longIntPoint = (unsigned long int *) pointer;
     unsigned long int bitPosition    = 0x8000000000000000;
