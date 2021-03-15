@@ -7,7 +7,7 @@
 
 //this function prints bits' values of any object.
 //the least significant bit is printed on the left 
-void showBits(const void * pointer, size_t size)
+void showBits(const void * pointer, const size_t size)
 {
     unsigned char * charPointer = (unsigned char *) pointer;
     unsigned char bitPosition;
