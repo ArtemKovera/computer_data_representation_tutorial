@@ -8,13 +8,14 @@
 
 int main()
 {
-    char ch = 33;
+    unsigned char ch = 33;
 
-    while(ch < 127)
+    while(ch < 128)
     {
         printf("%x - %d - %c\n", ch, ch, ch);
         ch++;
     }
+
 
     return 0;
 }
