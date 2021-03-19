@@ -88,5 +88,10 @@ int main ()
     printf("long double 0.50:\n");
     showBits(p8, sizeof(long double));
 
+    long double ** p9 = &p8;
+    printf("a pointer:\n");
+    showBits(p9, sizeof(p8));
+     
+  
     return 0;
 }
