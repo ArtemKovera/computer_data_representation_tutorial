@@ -6,7 +6,7 @@
 
 //this function takes a void pointer and the size of the object in bytes
 //the least significant byte is printed first
-void showBytes (const void * pointer, size_t size)
+void showBytes (const void * pointer, const size_t size)
 {
     unsigned char * charPointer = (unsigned char*) pointer;
     
