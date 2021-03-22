@@ -53,43 +53,37 @@ int main ()
     printf("\nIn these examples, the least significant byte comes first\n\n");
     
     const int var = 1024;
-    const void * cp = &var;
     printf("Showing bytes for int 1024: \n");
-    showBytes(cp, sizeof(int));
+    showBytes(&var, sizeof(int));
     printf("\n");
     
     short sh1 = 2;
-    short * shp1 = &sh1;
     printf("Showing bytes for short 2: \n");
-    showBytes(shp1, sizeof(sh1));
+    showBytes(&sh1, sizeof(sh1));
     printf("\n");    
 
     
     short sh2 = -2;
-    short * shp2 = &sh2;
     printf("Showing bytes for short -2: \n");
-    showBytes(shp2, sizeof(sh2));
+    showBytes(&sh2, sizeof(sh2));
     printf("\n");
 
 
     int int1 = 124;
-    int * ip1 = &int1;
     printf("Showing bytes for int 124: \n");
-    showBytes(ip1, sizeof(int1));
+    showBytes(&int1, sizeof(int1));
     printf("\n");
 
 
     double doub1 = 0.4789;
-    double * dp1 = &doub1;
     printf("Showing bytes for double 0.4789: \n");
-    showBytes(dp1, sizeof(doub1));
+    showBytes(&doub1, sizeof(doub1));
     printf("\n");
     
 
     long double ldoub1 = 0.5;
-    long double * ldp1 = &ldoub1;
     printf("Showing bytes for long double 0.5: \n");
-    showBytes(ldp1, sizeof(ldoub1));
+    showBytes(&ldoub1, sizeof(ldoub1));
     printf("\n");
 
 
@@ -97,8 +91,7 @@ int main ()
     mystr1.a = 1;
     mystr1.b = 3;
     printf("Showing bytes for a struct {int 1  int 3}: \n");
-    struct IntStruct * mystrPointer1 = &mystr1;
-    showBytes(mystrPointer1, sizeof(mystr1));
+    showBytes(&mystr1, sizeof(mystr1));
     printf("\n");
 
 
@@ -107,8 +100,7 @@ int main ()
     mystr2.in = 2;
     mystr2.c2 = 3;
     printf("Showing bytes for a struct {char 1  int 2  char 3}: \n");
-    struct DifferentTypes * mystrPointer2 = &mystr2;
-    showBytes(mystrPointer2, sizeof(mystr2));
+    showBytes(&mystr2, sizeof(mystr2));
     printf("\n");
 
     
@@ -117,8 +109,7 @@ int main ()
     mystr3.in = 2;
     mystr3.c2 = 3;
     printf("Showing bytes for a struct {int 2  char 1  char 2}: \n");
-    struct DifferentTypes2 * mystrPointer3 = &mystr3;
-    showBytes(mystrPointer3, sizeof(mystr3));
+    showBytes(&mystr3, sizeof(mystr3));
     printf("\n");
 
 
@@ -127,8 +118,7 @@ int main ()
     mystr4.in = 2;
     mystr4.c2 = 3;
     printf("Showing bytes for a struct {char 1  char 3  int 2}: \n");
-    struct DifferentTypes3 * mystrPointer4 = &mystr4;
-    showBytes(mystrPointer4, sizeof(mystr4));   
+    showBytes(&mystr4, sizeof(mystr4));   
     printf("\n");
 
     
