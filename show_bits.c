@@ -44,49 +44,41 @@ int main ()
     printf("\n");
 
     char v0 = 16;
-    char * p0 = &v0;
     printf("char 16:      ");
-    showBits(p0, sizeof(char));
+    showBits(&v0, sizeof(char));
 
     signed char v1 = -16;
-    signed char * p1 = &v1;
     printf("char -16:     ");
-    showBits(p1, sizeof(signed char));
+    showBits(&v1, sizeof(signed char));
     
     short v2 = 2;
-    short * p2 = &v2;
     printf("short 2:      ");
-    showBits(p2, sizeof(short));
+    showBits(&v2, sizeof(short));
 
     short v3 = -2;
-    short * p3 = &v3;
     printf("short -2:     ");
-    showBits(p3, sizeof(short));    
+    showBits(&v3, sizeof(short));    
 
     int v4 = 256;
-    int * p4 = &v4;
     printf("int 256:      ");
-    showBits(p4, sizeof(int));
+    showBits(&v4, sizeof(int));
     
     float v5 = 256.0;
-    float * p5 = &v5;
     printf("float 256.0:  ");
-    showBits(p5, sizeof(float));
+    showBits(&v5, sizeof(float));
 
     float v6 = 0.20;
-    float * p6 = &v6;
     printf("float 0.20:   ");
-    showBits(p6, sizeof(float));
+    showBits(&v6, sizeof(float));
 
     float v7 = -0.20;
-    float * p7 = &v7;
     printf("float -0.20:  ");
-    showBits(p7, sizeof(float));
+    showBits(&v7, sizeof(float));
 
     long double v8 = 0.50;
     long double * p8 = &v8;
     printf("long double 0.50:\n");
-    showBits(p8, sizeof(long double));
+    showBits(&v8, sizeof(long double));
 
     long double ** p9 = &p8;
     printf("a pointer:\n");
