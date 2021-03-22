@@ -23,172 +23,143 @@ int main()
     printf("\n *****Exloring single-precision numbers (float)***** \n\n");
 
     float val0 = 0.0;
-    void * p0 = &val0;
     printf("0.0:                ");
-    showBitsInFloat(p0);
+    showBitsInFloat(&val0);
 
     float val00 = 0.1;                   //this value cannot be exectly represented in binary
-    void * p00 = &val00;
     printf("0.1:                ");
-    showBitsInFloat(p00);
+    showBitsInFloat(&val00);
+
+    float val01 = 0.2;                   //this value cannot be exectly represented in binary
+    printf("0.2:                ");
+    showBitsInFloat(&val01);    
 
     float val = -0.5;
-    void * p = &val;
     printf("-0.5:               ");
-    showBitsInFloat(p);
+    showBitsInFloat(&val);
 
     float val1 = 0.5;
-    void * p1 = &val1;
     printf("0.5:                ");
-    showBitsInFloat(p1);
+    showBitsInFloat(&val1);
 
     float val2 = 0.25;
-    void * p2 = &val2;
     printf("0.25:               ");
-    showBitsInFloat(p2);
+    showBitsInFloat(&val2);
 
     float val3 = 0.125;
-    void * p3 = &val3;
     printf("0.125:              ");
-    showBitsInFloat(p3);
+    showBitsInFloat(&val3);
 
     float val33 = 0.0625;
-    void * p33 = &val33;
     printf("0.0625:             ");
-    showBitsInFloat(p33);
+    showBitsInFloat(&val33);
 
     float val4 = 16780000;
-    void * p4 = &val4;
     printf("16780000:           ");
-    showBitsInFloat(p4);
+    showBitsInFloat(&val4);
 
     float val5 = 16780001;
-    void * p5 = &val5;
     printf("16780001:           ");
-    showBitsInFloat(p5);
+    showBitsInFloat(&val5);
 
-    float val6 = 16780002;
-    void * p6 = &val6;     
+    float val6 = 16780002;   
     printf("16780002:           ");
-    showBitsInFloat(p6); 
+    showBitsInFloat(&val6); 
 
-    float val7 = 64000000;
-    void * p7 = &val7;     
+    float val7 = 64000000;   
     printf("64000000:           ");
-    showBitsInFloat(p7);   
+    showBitsInFloat(&val7);   
 
     float val8 = 64000001;
-    void * p8 = &val8;     
     printf("64000001:           ");
-    showBitsInFloat(p8);  
+    showBitsInFloat(&val8);  
 
-    float val9 = 64000002;
-    void * p9 = &val9;     
+    float val9 = 64000002;     
     printf("64000002:           ");
-    showBitsInFloat(p9);  
+    showBitsInFloat(&val9);  
 
-    float val10 = 64000003;
-    void * p10 = &val10;     
+    float val10 = 64000003;   
     printf("64000003:           ");
-    showBitsInFloat(p10); 
+    showBitsInFloat(&val10); 
 
-    float val11 = 64000004;
-    void * p11 = &val11;     
+    float val11 = 64000004;     
     printf("64000004:           ");
-    showBitsInFloat(p11);
+    showBitsInFloat(&val11);
 
-    float val12 = 64000005;
-    void * p12 = &val12;     
+    float val12 = 64000005;  
     printf("64000005:           ");
-    showBitsInFloat(p12);     
+    showBitsInFloat(&val12);     
 
-    float val13 = 64000006;
-    void * p13 = &val13;     
+    float val13 = 64000006;    
     printf("64000006:           ");
-    showBitsInFloat(p13);  
+    showBitsInFloat(&val13);  
 
     float val14 = NAN; //the macro for nan from math.h (the same value can be obtained as 0.0/0.0)
-    void * p14 = &val14;
     printf("Nan:                ");
-    showBitsInFloat(p14);  
+    showBitsInFloat(&val14);  
 
     float val15 = 1 / 0.0;
-    void * p15 = &val15;
     printf("Positive infinity:  ");
-    showBitsInFloat(p15);  
+    showBitsInFloat(&val15);  
 
     float val16 = -1 / 0.0;
-    void * p16 = &val16;
     printf("Negative infinity:  ");
-    showBitsInFloat(p16); 
+    showBitsInFloat(&val16); 
 
     float val17 = 0.0001 / pow(10, 35);           //Example of a number in a denormalized form
-    void * p17 = &val17;
     printf("Denormalized form:  ");   
-    showBitsInFloat(p17);                                                                                              
+    showBitsInFloat(&val17);                                                                                              
 
     printf("------------------------------------------\n");  
     printf("\n *****Exploring double-precision numbers (double)***** \n\n");
 
     double dval = 0.0;
-    void * dp = &dval;
     printf("0.0:                ");
-    showBitsInDouble(dp);
+    showBitsInDouble(&dval);
 
     double dval2 = 1.0;
-    void * dp2 = &dval2;
     printf("1.0:                ");
-    showBitsInDouble(dp2);   
+    showBitsInDouble(&dval2);   
 
     double dval3 = -1.0;
-    void * dp3 = &dval3;
     printf("-1.0:               ");
-    showBitsInDouble(dp3);
+    showBitsInDouble(&dval3);
 
     double dval4 = 10000000000000000;
-    void * dp4 = &dval4;
     printf("10000000000000000:  ");
-    showBitsInDouble(dp4); 
+    showBitsInDouble(&dval4); 
 
     double dval5 = 10000000000000001;
-    void * dp5 = &dval5;
     printf("10000000000000001:  ");
-    showBitsInDouble(dp5);
+    showBitsInDouble(&dval5);
 
     double dval6 = 10000000000000002;
-    void * dp6 = &dval6;
     printf("10000000000000002:  ");
-    showBitsInDouble(dp6);     
+    showBitsInDouble(&dval6);     
 
     double dval7 = NAN; //the macro for nan from math.h (the same value can be obtained as 0.0/0.0)
-    void * dp7 = &dval7;
     printf("Nan:                ");
-    showBitsInDouble(dp7); 
+    showBitsInDouble(&dval7); 
 
     double dval8 = 1 / 0.0;
-    void * dp8 = &dval8;
     printf("Positive infinity:  ");
-    showBitsInDouble(dp8);  
+    showBitsInDouble(&dval8);  
 
     double dval9 = -1 / 0.0;
-    void * dp9 = &dval9;
     printf("Negative infinity:  ");
-    showBitsInDouble(dp9); 
+    showBitsInDouble(&dval9); 
 
     double dval10 = 10e-310;           //Example of a number in a denormalized form
-    void * dp10 = &dval10;
     printf("Denormalized form:  ");   
-    showBitsInDouble(dp10); 
+    showBitsInDouble(&dval10); 
 
     double dval11 = 10e-340;
-    void * dp11 = &dval11;
     printf("Underflow:          ");    //Example of double underflow
-    showBitsInDouble(dp11);
+    showBitsInDouble(&dval11);
 
     float fl1 = 10e-47;
-    void * flp = &fl1;
     printf("Underflow:          ");    //Example of float underflow
-    showBitsInFloat(flp);
+    showBitsInFloat(&fl1);
 
 
 
@@ -221,9 +192,9 @@ void showBitsInFloat (const void * pointer)
 
 void showBitsInDouble (const void * pointer)
 {
-    unsigned long int * longIntPoint = (unsigned long int *) pointer;
-    unsigned long int bitPosition    = 0x8000000000000000;
-    unsigned char iteration          = 0;
+    unsigned long long int * longIntPoint = (unsigned long long int *) pointer;
+    unsigned long long int bitPosition    = 0x8000000000000000;
+    unsigned char iteration               = 0;
 
     while(iteration<64)
     {
